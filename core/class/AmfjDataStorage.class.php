@@ -62,7 +62,7 @@ class AmfjDataStorage
     public function createDataTable()
     {
         if (!$this->isDataTableExists()) {
-            $statement = DB::getConnection()->prepare("CREATE TABLE `" . $this->dataTableName . "` (`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` VARCHAR(256) NOT NULL, `data` TEXT NULL)");
+            $statement = \DB::getConnection()->prepare("CREATE TABLE `" . $this->dataTableName . "` (`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` VARCHAR(256) NOT NULL, `data` TEXT NULL)");
             $statement->execute();
         }
     }
@@ -82,7 +82,7 @@ class AmfjDataStorage
      */
     public function deleteData($code)
     {
-        $statement = DB::getConnection()->prepare("DELETE FROM `" . $this->dataTableName . "` WHERE `code` = ?");
+        $statement = \DB::getConnection()->prepare("DELETE FROM `" . $this->dataTableName . "` WHERE `code` = ?");
         $statement->execute(array($code));
     }
 
@@ -96,7 +96,7 @@ class AmfjDataStorage
     public function getRawData($code)
     {
         $returnValue = null;
-        $statement = DB::getConnection()->prepare("SELECT `data` FROM `" . $this->dataTableName . "` WHERE `code` = ?");
+        $statement = \DB::getConnection()->prepare("SELECT `data` FROM `" . $this->dataTableName . "` WHERE `code` = ?");
         $statement->execute(array($code));
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         if (\count($result) > 0) {
@@ -129,7 +129,7 @@ class AmfjDataStorage
      */
     public function addRawData($code, $data)
     {
-        $statement = DB::getConnection()->prepare("INSERT INTO `" . $this->dataTableName . "` (`code`, `data`) VALUES (?, ?)");
+        $statement = \DB::getConnection()->prepare("INSERT INTO `" . $this->dataTableName . "` (`code`, `data`) VALUES (?, ?)");
         $statement->execute(array($code, $data));
     }
 
@@ -141,7 +141,7 @@ class AmfjDataStorage
      */
     public function updateRawData($code, $data)
     {
-        $statement = DB::getConnection()->prepare("UPDATE `" . $this->dataTableName . "` SET `data` = ? WHERE `code` = ?");
+        $statement = \DB::getConnection()->prepare("UPDATE `" . $this->dataTableName . "` SET `data` = ? WHERE `code` = ?");
         $statement->execute(array($data, $code));
 
     }
@@ -191,7 +191,7 @@ class AmfjDataStorage
      * @param string $code Code à comparer avec LIKE
      */
     public function remove($code) {
-        $statement = DB::getConnection()->prepare("DELETE FROM `".$this->dataTableName."` WHERE `code` LIKE ?");
+        $statement = \DB::getConnection()->prepare("DELETE FROM `".$this->dataTableName."` WHERE `code` LIKE ?");
         $statement->execute(array($code));
     }
 }

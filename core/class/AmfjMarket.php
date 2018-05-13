@@ -19,6 +19,8 @@
 namespace NextDom\Amfj;
 
 use NextDom\Amfj\AmfjGitManager;
+use NextDom\Amfj\AmfjDownloadManager;
+use NextDom\Amfj\AmfjDataStorage;
 
 class AmfjMarket
 {
@@ -107,7 +109,7 @@ class AmfjMarket
         if ($force || $this->isUpdateNeeded($this->source['name'])) {
             $content = $this->downloadManager->downloadContent($this->source['data']);
             if ($content !== false) {
-                $marketData = json_decode($content, true);
+                $marketData = \json_decode($content, true);
                 $lastChange = $this->dataStorage->getRawData('repo_last_change_' . $this->source['name']);
                 if ($lastChange == null || $marketData['version'] > $lastChange) {
                     foreach ($marketData['plugins'] as $plugin) {
@@ -171,7 +173,7 @@ class AmfjMarket
         $plugins = $this->dataStorage->getJsonData('repo_data_' . $this->source['name']);
         foreach ($plugins as $plugin) {
             $marketItem = AmfjMarketItem::createFromCache($this->source['name'], $plugin['gitId'] . '/' . $plugin['repository']);
-            array_push($result, $marketItem);
+            \array_push($result, $marketItem);
         }
         return $result;
     }

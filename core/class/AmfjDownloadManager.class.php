@@ -60,7 +60,7 @@ class AmfjDownloadManager
             $this->connectionStatus = false;
             $this->testConnection();
         }
-        $this->gitHubToken = config::byKey('github::token');
+        $this->gitHubToken = \config::byKey('github::token');
     }
 
     /**
@@ -71,7 +71,7 @@ class AmfjDownloadManager
         $sock = \fsockopen($this->getUrlForTest(), 80);
         if ($sock !== false) {
             $this->connectionStatus = true;
-            fclose($sock);
+            \fclose($sock);
         } else {
             $this->connectionStatus = $sock;
         }
@@ -100,13 +100,13 @@ class AmfjDownloadManager
         if ($this->gitHubToken !== false && $this->gitHubToken != '' && !$binary) {
             $toAdd = 'access_token=' . $this->gitHubToken;
             // Test si un paramètre a déjà été passé
-            if (strpos($url, '?') !== false) {
+            if (\strpos($url, '?') !== false) {
                 $url = $url . '&' . $toAdd;
             } else {
                 $url = $url . '?' . $toAdd;
             }
         }
-        log::add('AlternativeMarketForJeedom', 'debug', 'Download ' . $url);
+        \log::add('AlternativeMarketForJeedom', 'debug', 'Download ' . $url);
         $result = false;
         if ($this->isCurlEnabled()) {
             $result = $this->downloadContentWithCurl($url, $binary);

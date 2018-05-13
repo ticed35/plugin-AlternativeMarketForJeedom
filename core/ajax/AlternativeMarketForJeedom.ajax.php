@@ -18,11 +18,12 @@
 
 namespace NextDom\Amfj\ajax;
 
+require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../../../../core/php/core.inc.php';
+
 use NextDom\Amfj\AmfjAjaxParser;
 
-header('Content-Type: application/json');
-
-require_once __DIR__ . '/../../../../core/php/core.inc.php';
+\header('Content-Type: application/json');
 
 try {
     \include_file('core', 'authentification', 'php');
@@ -30,8 +31,6 @@ try {
     if (!\isConnect('admin')) {
         throw new \Exception(__('401 - Accès non autorisé', __FILE__));
     }
-
-    require_once __DIR__ . '/../class/AmfjAjaxParser.class.php';
 
     \ajax::init();
 
@@ -45,7 +44,7 @@ try {
         \ajax::success($result);
     }
 
-    throw new \Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
+    throw new \Exception(\__('Aucune méthode correspondante à : ', __FILE__) . \init('action'));
 } catch (\Exception $e) {
     \ajax::error(\displayException($e), $e->getCode());
 }

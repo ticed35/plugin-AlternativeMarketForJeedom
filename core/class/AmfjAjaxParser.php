@@ -91,12 +91,12 @@ class AmfjAjaxParser
     private static function refreshList($sources, $force)
     {
         $result = false;
-        if (\is_array($sources)) {
-            $result = true;
-            foreach ($sources as $source) {
-                $market = new AmfjMarket($source);
-                $market->refresh($force);
-            }
+        if (is_array($sources)) {
+            //$result = true;
+            //foreach ($sources as $source) {
+                //$market = new AmfjMarket($source);
+                //$market->refresh($force);
+            //}
         } else {
             throw new \Exception('Aucune source configurée');
         }
@@ -143,8 +143,8 @@ class AmfjAjaxParser
                                 array_push($result, $item->getDataInArray());
                             } else {
                                 if (!\in_array($item->getId(), $idList)) {
-                                    array_push($result, $item->getDataInArray());
-                                    array_push($idList, $item->getId());
+                                    \array_push($result, $item->getDataInArray());
+                                    \array_push($idList, $item->getId());
                                 }
                             }
                         }
