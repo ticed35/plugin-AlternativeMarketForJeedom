@@ -15,6 +15,7 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
+namespace NextDom\Amfj\php
 
 require_once __DIR__ . '/../../core/class/AmfjMarket.class.php';
 

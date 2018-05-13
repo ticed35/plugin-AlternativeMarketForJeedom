@@ -15,9 +15,10 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
+namespace NextDom\Amfj\class
 
-require_once 'AmfjMarket.class.php';
-require_once 'AmfjDownloadManager.class.php';
+use NextDom\Amfj\class\AmfjMarket;
+use NextDom\Amfj\class\AmfjDownloadManager;
 
 /**
  * Analyseur des requêtes Ajax
