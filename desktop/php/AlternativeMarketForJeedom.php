@@ -15,14 +15,16 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once __DIR__ . '/../../core/class/AmfjMarket.class.php';
+namespace NextDom\Amfj;
 
-if (!isConnect('admin')) {
+use NextDom\Amfj\AmfjMarket;
+
+if (!\isConnect('admin')) {
     throw new \Exception('{{401 - Accès non autorisé}}');
 }
 
-$plugin = plugin::byId('AlternativeMarketForJeedom');
-$eqLogics = eqLogic::byType($plugin->getId());
+$plugin = \plugin::byId('AlternativeMarketForJeedom');
+$eqLogics = \eqLogic::byType($plugin->getId());
 
 $sourcesList = array();
 foreach ($eqLogics as $eqLogic) {
@@ -31,32 +33,32 @@ foreach ($eqLogics as $eqLogic) {
     $source['name'] = $eqLogic->getName();
     $source['type'] = $eqLogic->getConfiguration()['type'];
     $source['data'] = $eqLogic->getConfiguration()['data'];
-    array_push($sourcesList, $source);
+    \array_push($sourcesList, $source);
 }
-sendVarToJs('sourcesList', $sourcesList);
+\sendVarToJs('sourcesList', $sourcesList);
 
 // Affichage d'un message à un utilisateur
 if (isset($_GET['message'])) {
     $messages = [
-        __('La mise à jour du plugin a été effecutée.', __FILE__),
-        __('Le plugin a bien été supprimé', __FILE__)
+        \__('La mise à jour du plugin a été effecutée.', __FILE__),
+        \__('Le plugin a bien été supprimé', __FILE__)
     ];
 
-    $messageIndex = intval($_GET['message']);
-    if ($messageIndex < count($messages)) {
-        sendVarToJs('messageToUser', $messages[$messageIndex]);
+    $messageIndex = \intval($_GET['message']);
+    if ($messageIndex < \count($messages)) {
+        \sendVarToJs('messageToUser', $messages[$messageIndex]);
     }
 }
 
-include_file('desktop', 'AlternativeMarketForJeedom', 'js', 'AlternativeMarketForJeedom');
-include_file('desktop', 'AlternativeMarketForJeedom', 'css', 'AlternativeMarketForJeedom');
-include_file('core', 'plugin.template', 'js');
+\include_file('desktop', 'AlternativeMarketForJeedom', 'js', 'AlternativeMarketForJeedom');
+\include_file('desktop', 'AlternativeMarketForJeedom', 'css', 'AlternativeMarketForJeedom');
+\include_file('core', 'plugin.template', 'js');
 
 ?>
 <div class="market-filters row">
     <div id="market-filter-src" class="btn-group col-sm-10">
         <?php
-        if (count($eqLogics) > 1) {
+        if (\count($eqLogics) > 1) {
             foreach ($eqLogics as $eqLogic) {
                 $name = $eqLogic->getName();
                 echo '<button type="button" class="btn btn-primary" data-source="' . $name . '">' . $name . '</button >';

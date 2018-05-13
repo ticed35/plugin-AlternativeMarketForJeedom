@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "NextDom\\Amfj\\": ["core/class","core/ajax"]
+            "NextDom\\Amfj\\": ["core/class","core/ajax","desktop/php","desktop/modal"]
         }
     }
 }

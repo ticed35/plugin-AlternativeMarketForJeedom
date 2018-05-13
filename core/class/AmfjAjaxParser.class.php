@@ -91,7 +91,7 @@ class AmfjAjaxParser
     private static function refreshList($sources, $force)
     {
         $result = false;
-        if (is_array($sources)) {
+        if (\is_array($sources)) {
             $result = true;
             foreach ($sources as $source) {
                 $market = new AmfjMarket($source);
@@ -109,7 +109,7 @@ class AmfjAjaxParser
     private static function refreshBranchHash(array $data)
     {
         $result = false;
-        if (count($data) == 2) {
+        if (\count($data) == 2) {
             $marketItem = AmfjMarketItem::createFromCache($data[0], $data[1]);
             $marketItem->updateBranchDataFromInstalled();
             $result = true;
@@ -129,7 +129,7 @@ class AmfjAjaxParser
     {
         switch ($params) {
             case 'list':
-                if (is_array($data)) {
+                if (\is_array($data)) {
                     $result = [];
                     $idList = [];
                     $showDuplicates = config::byKey('show-duplicates', 'AlternativeMarketForJeedom');

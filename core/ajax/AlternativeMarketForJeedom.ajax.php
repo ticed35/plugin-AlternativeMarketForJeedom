@@ -18,33 +18,35 @@
 
 namespace NextDom\Amfj\ajax;
 
+use NextDom\Amfj\AmfjAjaxParser;
+
 header('Content-Type: application/json');
 
 require_once __DIR__ . '/../../../../core/php/core.inc.php';
 
 try {
-    include_file('core', 'authentification', 'php');
+    \include_file('core', 'authentification', 'php');
 
-    if (!isConnect('admin')) {
+    if (!\isConnect('admin')) {
         throw new \Exception(__('401 - Accès non autorisé', __FILE__));
     }
 
     require_once __DIR__ . '/../class/AmfjAjaxParser.class.php';
 
-    ajax::init();
+    \ajax::init();
 
-    $action = init('action');
-    $params = init('params');
-    $data = init('data');
+    $action = \init('action');
+    $params = \init('params');
+    $data = \init('data');
 
     $result = AmfjAjaxParser::parse($action, $params, $data);
 
     if ($result !== false) {
-        ajax::success($result);
+        \ajax::success($result);
     }
 
     throw new \Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
 } catch (\Exception $e) {
-    ajax::error(displayException($e), $e->getCode());
+    \ajax::error(\displayException($e), $e->getCode());
 }
 
