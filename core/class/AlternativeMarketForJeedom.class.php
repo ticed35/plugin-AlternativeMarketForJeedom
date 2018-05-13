@@ -17,11 +17,14 @@
  */
 
 require_once __DIR__ . '/../../../../core/php/core.inc.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
+
+namespace NextDom\Amfj\class
 
 /**
  * Classe des objets de Jeedom
  */
-class AlternativeMarketForJeedom extends eqLogic
+class AlternativeMarketForJeedom extends \eqLogic
 {
 
 }

@@ -15,9 +15,10 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
+namespace NextDom\Amfj\class
 
-require_once('AmfjDownloadManager.class.php');
-require_once('AmfjDataStorage.class.php');
+use NextDom\Amfj\AmfjDownloadManager;
+use NextDom\Amfj\AmfjDataStorage;
 
 /**
  * Gestion des informations liées à GitHub

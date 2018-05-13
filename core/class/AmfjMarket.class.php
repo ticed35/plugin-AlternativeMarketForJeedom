@@ -15,9 +15,10 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once('AmfjGitManager.class.php');
-require_once('AmfjDownloadManager.class.php');
-require_once('AmfjMarketItem.class.php');
+
+namespace NextDom\Amfj\class
+
+use NextDom\Amfj\AmfjGitManager;
 
 class AmfjMarket
 {
