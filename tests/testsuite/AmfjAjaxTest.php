@@ -34,7 +34,7 @@ class AmfjAjaxTest extends TestCase
     public function testNotConnected()
     {
         JeedomVars::$isConnected = false;
-        include(dirname(__FILE__) . '/../core/ajax/AlternativeMarketForJeedom.ajax.php');
+        include(dirname(__FILE__) . '/../core/ajax/AlternativeMarketForJeedom.class.ajax.php');
         $actions = MockedActions::get();
         $this->assertCount(2, $actions);
         $this->assertEquals('include_file', $actions[0]['action']);
@@ -46,7 +46,7 @@ class AmfjAjaxTest extends TestCase
     {
         scenario::init();
         JeedomVars::$initAnswers = array('action' => 'get', 'params' => 'list', 'data' => array());
-        include(dirname(__FILE__) . '/../core/ajax/AlternativeMarketForJeedom.ajax.php');
+        include(dirname(__FILE__) . '/../core/ajax/AlternativeMarketForJeedom.class.ajax.php');
         $actions = MockedActions::get();
         $this->assertCount(4, $actions);
         $this->assertEquals('include_file', $actions[0]['action']);

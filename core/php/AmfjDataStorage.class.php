@@ -16,7 +16,7 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace NextDom\Amfj\class
+namespace NextDom\Amfj\php
 
 require_once __DIR__ . '/../../../../core/config/common.config.php';
 require_once __DIR__ . '/../../../../core/class/DB.class.php';

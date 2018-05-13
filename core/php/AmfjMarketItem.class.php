@@ -15,7 +15,7 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace NextDom\Amfj\class
+namespace NextDom\Amfj\php
 
 class AmfjMarketItem
 {
@@ -346,7 +346,7 @@ class AmfjMarketItem
             unlink($targetPath);
             $this->iconPath = 'core/img/no-image-plugin.png';
         } else {
-            $this->iconPath = 'plugins/AlternativeMarketForJeedom/cache/' . $iconFilename;
+            $this->iconPath = 'plugins/AlternativeMarketForJeedom.class/cache/' . $iconFilename;
         }
 
     }

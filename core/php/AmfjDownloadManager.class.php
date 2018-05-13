@@ -15,7 +15,7 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace NextDom\Amfj\class
+namespace NextDom\Amfj\php
 
 /**
  * Gestion des téléchargements
@@ -106,7 +106,7 @@ class AmfjDownloadManager
                 $url = $url . '?' . $toAdd;
             }
         }
-        log::add('AlternativeMarketForJeedom', 'debug', 'Download ' . $url);
+        log::add('AlternativeMarketForJeedom.class', 'debug', 'Download ' . $url);
         $result = false;
         if ($this->isCurlEnabled()) {
             $result = $this->downloadContentWithCurl($url, $binary);
@@ -161,7 +161,7 @@ class AmfjDownloadManager
             if ($binary) {
                 \curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
             }
-            \curl_setopt($curlSession, CURLOPT_USERAGENT, 'AlternativeMarketForJeedom');
+            \curl_setopt($curlSession, CURLOPT_USERAGENT, 'AlternativeMarketForJeedom.class');
             $content = \curl_exec($curlSession);
             \curl_close($curlSession);
         }

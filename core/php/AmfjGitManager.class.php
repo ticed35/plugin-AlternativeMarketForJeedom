@@ -15,7 +15,7 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace NextDom\Amfj\class
+namespace NextDom\Amfj\php
 
 use NextDom\Amfj\AmfjDownloadManager;
 use NextDom\Amfj\AmfjDataStorage;

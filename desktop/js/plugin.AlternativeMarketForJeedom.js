@@ -99,7 +99,7 @@ function initInstallationButtons() {
  */
 function initBranchesUpdate(defaultBranchChoice) {
     $.post({
-        url: 'plugins/AlternativeMarketForJeedom/core/ajax/AlternativeMarketForJeedom.ajax.php',
+        url: 'plugins/AlternativeMarketForJeedom.class/core/ajax/AlternativeMarketForJeedom.class.ajax.php',
         data: {
             action: 'get',
             params: 'branches',
@@ -188,7 +188,7 @@ function updatePlugin(id) {
             data: [currentPlugin['sourceName'], currentPlugin['fullName']]
         }
         // Met à jour les branches
-        ajaxQuery('plugins/AlternativeMarketForJeedom/core/ajax/AlternativeMarketForJeedom.ajax.php', data, function () {
+        ajaxQuery('plugins/AlternativeMarketForJeedom.class/core/ajax/AlternativeMarketForJeedom.class.ajax.php', data, function () {
             window.location.href = window.location.href + "&message=0";
         });
     });

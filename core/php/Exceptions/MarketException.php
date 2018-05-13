@@ -16,7 +16,7 @@
  * along with NextDom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace NextDom\Amfj\class\Exceptions
+namespace NextDom\Amfj\php\Exceptions
 
 class MarketException extends \Exception
 {

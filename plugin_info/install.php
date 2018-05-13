@@ -31,7 +31,7 @@ function AlternativeMarketForJeedom_install()
     $defaultMarket = new AlternativeMarketForJeedom();
     $defaultMarket->setName('NextDom Market');
     $defaultMarket->setLogicalId('NextDom Market');
-    $defaultMarket->setEqType_name('AlternativeMarketForJeedom');
+    $defaultMarket->setEqType_name('AlternativeMarketForJeedom.class');
     $defaultMarket->setConfiguration('type', 'json');
     $defaultMarket->setConfiguration('data', 'https://raw.githubusercontent.com/NextDom/AlternativeMarket-Lists/master/result.json');
     $defaultMarket->save();
@@ -51,7 +51,7 @@ function AlternativeMarketForJeedom_remove()
 {
     $dataStorage = new AmfjDataStorage('amfj');
     $dataStorage->dropDataTable();
-    foreach (eqLogic::byType('AlternativeMarketForJeedom') as $eqLogic) {
+    foreach (eqLogic::byType('AlternativeMarketForJeedom.class') as $eqLogic) {
         $eqLogic->remove();
     }
 }

@@ -16,15 +16,4 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace NextDom\Amfj\class
-
-require_once __DIR__ . '/../../../../core/php/core.inc.php';
-require_once __DIR__ . '/../../vendor/autoload.php';
-
-/**
- * Classe des objets de Jeedom
- */
-class AlternativeMarketForJeedom extends \eqLogic
-{
-
-}
+require __DIR__ . '/../php/Amfj.php';

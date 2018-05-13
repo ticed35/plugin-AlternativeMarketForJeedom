@@ -15,7 +15,7 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace NextDom\Amfj\class
+namespace NextDom\Amfj\php
 
 use NextDom\Amfj\class\AmfjMarket;
 use NextDom\Amfj\class\AmfjDownloadManager;
@@ -132,7 +132,7 @@ class AmfjAjaxParser
                 if (is_array($data)) {
                     $result = [];
                     $idList = [];
-                    $showDuplicates = config::byKey('show-duplicates', 'AlternativeMarketForJeedom');
+                    $showDuplicates = config::byKey('show-duplicates', 'AlternativeMarketForJeedom.class');
                     foreach ($data as $source) {
                         $market = new AmfjMarket($source);
                         // Obtenir la liste complète
@@ -186,14 +186,14 @@ class AmfjAjaxParser
                 $source = new AlternativeMarketForJeedom();
                 $source->setName($data['id']);
                 $source->setLogicalId($data['id']);
-                $source->setEqType_name('AlternativeMarketForJeedom');
+                $source->setEqType_name('AlternativeMarketForJeedom.class');
                 $source->setConfiguration('type', $data['type']);
                 $source->setConfiguration('data', $data['id']);
                 $source->save();
                 $result = true;
                 break;
             case 'remove':
-                $source = eqLogic::byLogicalId($data['id'], 'AlternativeMarketForJeedom');
+                $source = eqLogic::byLogicalId($data['id'], 'AlternativeMarketForJeedom.class');
                 $source->remove();
                 $sourceConfig = [];
                 $sourceConfig['name'] = $data['id'];

@@ -27,7 +27,7 @@ if (!isConnect()) {
     // @codeCoverageIgnoreEnd
 }
 
-include_file('desktop', 'AlternativeMarketForJeedomConfig', 'css', 'AlternativeMarketForJeedom');
+include_file('desktop', 'AlternativeMarketForJeedomConfig', 'css', 'AlternativeMarketForJeedom.class');
 
 ?>
     <div class="alert alert-danger" role="alert">
@@ -63,4 +63,4 @@ include_file('desktop', 'AlternativeMarketForJeedomConfig', 'css', 'AlternativeM
     </form>
 
 <?php
-include_file('desktop', 'AlternativeMarketForJeedomConfiguration', 'js', 'AlternativeMarketForJeedom');
+include_file('desktop', 'AlternativeMarketForJeedomConfiguration', 'js', 'AlternativeMarketForJeedom.class');

@@ -159,7 +159,7 @@ function refresh(force) {
         params = 'list-force';
     }
     $.post({
-        url: 'plugins/AlternativeMarketForJeedom/core/ajax/AlternativeMarketForJeedom.ajax.php',
+        url: 'plugins/AlternativeMarketForJeedom.class/core/ajax/AlternativeMarketForJeedom.class.ajax.php',
         data: {
             action: 'refresh',
             params: params,
@@ -186,7 +186,7 @@ function refresh(force) {
  */
 function refreshItems() {
     $.post({
-        url: 'plugins/AlternativeMarketForJeedom/core/ajax/AlternativeMarketForJeedom.ajax.php',
+        url: 'plugins/AlternativeMarketForJeedom.class/core/ajax/AlternativeMarketForJeedom.class.ajax.php',
         data: {
             action: 'get',
             params: 'list',
@@ -286,7 +286,7 @@ function getItemHtml(item) {
 function showPluginModal(pluginData) {
     var modal = $('#md_modal');
     modal.dialog({title: pluginData['name']});
-    modal.load('index.php?v=d&plugin=AlternativeMarketForJeedom&modal=plugin.AlternativeMarketForJeedom').dialog('open');
+    modal.load('index.php?v=d&plugin=AlternativeMarketForJeedom.class&modal=plugin.AlternativeMarketForJeedom.class').dialog('open');
     currentPlugin = pluginData;
 }
 
