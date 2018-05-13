@@ -18,7 +18,7 @@
 if (!isConnect('admin')) {
     throw new \Exception('{{401 - Accès non autorisé}}');
 }
-$plugin = plugin::byId('AlternativeMarketForJeedom.class');
+$plugin = plugin::byId('AlternativeMarketForJeedom');
 $eqLogics = eqLogic::byType($plugin->getId());
 
 $sourcesList = array();
@@ -52,5 +52,5 @@ sendVarToJs('sourcesList', $sourcesList);
         </div>
     </div>
 <?php
-include_file('desktop', 'config.AlternativeMarketForJeedom.class', 'js', 'AlternativeMarketForJeedom.class');
-include_file('desktop', 'AlternativeMarketForJeedom.class', 'css', 'AlternativeMarketForJeedom.class');
+include_file('desktop', 'config.AlternativeMarketForJeedom', 'js', 'AlternativeMarketForJeedom');
+include_file('desktop', 'AlternativeMarketForJeedom', 'css', 'AlternativeMarketForJeedom');

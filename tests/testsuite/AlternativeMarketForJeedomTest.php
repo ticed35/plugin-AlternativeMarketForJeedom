@@ -22,9 +22,9 @@ class AlternativeMarketForJeedomTest extends TestCase
 {
     public function testClassDeclaration()
     {
-        include_once('core/class/AlternativeMarketForJeedom.class.class.php');
-        $this->assertTrue(class_exists('AlternativeMarketForJeedom.class'));
-        $methods = get_class_methods('AlternativeMarketForJeedom.class');
+        include_once('core/class/AlternativeMarketForJeedom.class.php');
+        $this->assertTrue(class_exists('AlternativeMarketForJeedom'));
+        $methods = get_class_methods('AlternativeMarketForJeedom');
         $this->assertContains('remove', $methods);
     }
 }

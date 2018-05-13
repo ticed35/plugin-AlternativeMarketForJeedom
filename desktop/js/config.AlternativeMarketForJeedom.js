@@ -1,7 +1,7 @@
 // Point d'entrée du script
 $(document).ready(function () {
     var shortcuts = ['NextDom', 'jeedom'];
-    var shortcutsImg = ['/plugins/AlternativeMarketForJeedom.class/plugin_info/AlternativeMarketForJeedom_icon.png','/plugins/AlternativeMarketForJeedom.class/resources/jeedom-logo.png'];
+    var shortcutsImg = ['/plugins/AlternativeMarketForJeedom/plugin_info/AlternativeMarketForJeedom_icon.png','/plugins/AlternativeMarketForJeedom/resources/jeedom-logo.png'];
     var gitsListUl = $('#config-modal ul');
     for (var sourceIndex = 0; sourceIndex < sourcesList.length; ++sourceIndex) {
         if (sourcesList[sourceIndex]['type'] === 'github') {
@@ -101,7 +101,7 @@ function removeGitId(gitId) {
  */
 function ajaxQuery(queryData, callbackFunc) {
     $.post({
-        url: 'plugins/AlternativeMarketForJeedom.class/core/ajax/AlternativeMarketForJeedom.class.ajax.php',
+        url: 'plugins/AlternativeMarketForJeedom/core/ajax/AlternativeMarketForJeedom.ajax.php',
         data: queryData,
         dataType: 'json',
         success: function (data, status) {

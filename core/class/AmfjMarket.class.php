@@ -16,7 +16,7 @@
  */
 
 
-namespace NextDom\Amfj\php
+namespace NextDom\Amfj;
 
 use NextDom\Amfj\AmfjGitManager;
 

@@ -16,4 +16,4 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-require __DIR__ . '/../php/Amfj.php';
+require 'Amfj.php';

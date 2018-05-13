@@ -82,7 +82,7 @@ class AmfjMarketTest extends TestCase
         $this->assertTrue(is_numeric($lastUpdate));
         $globalRepo = $this->dataStorage->getJsonData('repo_data_NextDom');
         $this->assertTrue(is_array($globalRepo));
-        $amfjRepo = $this->dataStorage->getJsonData('repo_data_NextDom_plugin-AlternativeMarketForJeedom.class');
+        $amfjRepo = $this->dataStorage->getJsonData('repo_data_NextDom_plugin-AlternativeMarketForJeedom');
         $optimizeRepo = $this->dataStorage->getJsonData('repo_data_NextDom_plugin-Optimize');
         $this->assertTrue(is_array($amfjRepo));
         $this->assertArrayHasKey('fullName', $optimizeRepo);

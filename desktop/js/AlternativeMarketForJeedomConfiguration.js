@@ -12,5 +12,5 @@ $(document).ready(function () {
 function showConfigModal() {
     var modal = $('#md_modal');
     modal.dialog({title: 'Configuration'});
-    modal.load('index.php?v=d&plugin=AlternativeMarketForJeedom.class&modal=config.AlternativeMarketForJeedom.class').dialog('open');
+    modal.load('index.php?v=d&plugin=AlternativeMarketForJeedom&modal=config.AlternativeMarketForJeedom').dialog('open');
 }
