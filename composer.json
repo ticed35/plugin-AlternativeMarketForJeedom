@@ -15,7 +15,8 @@
     "require-dev": {
         "php-coveralls/php-coveralls": "~2.0",
         "mikey179/vfsStream": "~1.6",
-        "phpunit/phpunit": "~7.0"
+        "phpunit/phpunit": "~7.0",
+        "symfony/debug-bundle" : "3.4.*"
     },
     "autoload": {
         "psr-4": {

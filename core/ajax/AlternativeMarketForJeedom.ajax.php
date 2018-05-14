@@ -22,8 +22,13 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../../../core/php/core.inc.php';
 
 use NextDom\Amfj\AmfjAjaxParser;
+use Symfony\Component\Debug\ErrorHandler;
+use Symfony\Component\Debug\ExceptionHandler;
 
 \header('Content-Type: application/json');
+
+ErrorHandler::register();
+ExceptionHandler::register();
 
 try {
     \include_file('core', 'authentification', 'php');
@@ -46,6 +51,6 @@ try {
 
     throw new \Exception(\__('Aucune méthode correspondante à : ', __FILE__) . \init('action'));
 } catch (\Exception $e) {
-    \ajax::error(\displayException($e), $e->getCode());
+    \ajax::error(\displayExeption($e), $e->getCode());
 }
 
